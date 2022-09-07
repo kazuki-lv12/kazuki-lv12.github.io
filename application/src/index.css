@@ -1,0 +1,11 @@
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+  margin: 0;
+}
+
+/* header */
+.c-boder {
+  border-bottom: 1px solid #e4edf4;
+}
