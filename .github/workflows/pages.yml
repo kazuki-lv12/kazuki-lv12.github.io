@@ -37,8 +37,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "16"
-          cache: npm
-        run: npm ci && npm run build
+        run: |
+          npm ci
+          npm run build
         working-directory: ./application
 
       - name: Setup Pages
