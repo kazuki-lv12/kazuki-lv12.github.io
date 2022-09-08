@@ -56,7 +56,7 @@ export const useGetBlogList = (tag: string | null) => {
  * 単一の blog を返す関数
  * - id を指定して該当する blog を返します
  */
-export const useGetBlog = (id: string) => {
+export const useGetBlog = (id: string | null | undefined) => {
   const [blog, setBlog] = useState<MicrocmsContents | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
 
@@ -65,7 +65,7 @@ export const useGetBlog = (id: string) => {
       ; (async () => {
         const res = (await microcms.get({
           endpoint: 'blogs',
-          queries: { ids: id },
+          queries: { ids: `${id}` },
         })) as Microcms
 
         setBlog(res.contents[0])

@@ -1,9 +1,8 @@
 import { useGetBlog } from 'config/microcms'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 export const AppId = (): JSX.Element => {
-  const id = useLocation().pathname.replace('/', '')
-  const { blog, loading } = useGetBlog(id)
+  const { blog, loading } = useGetBlog(useParams()['*'])
 
   if (loading) {
     return <div>now loading...</div>
