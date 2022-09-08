@@ -19,11 +19,11 @@ export const useGetBlogList = (tag: string | null) => {
 
   useEffect(() => {
     try {
-      ; (async () => {
+      ;(async () => {
         if (tag) {
           const res = (await microcms.get({
             endpoint: 'blogs',
-            queries: { filters: `tag[contains]${tag}` }
+            queries: { filters: `tag[contains]${tag}` },
           })) as Microcms
 
           setBlogList(res.contents)
@@ -48,7 +48,7 @@ export const useGetBlogList = (tag: string | null) => {
   return {
     blogList,
     total,
-    loading
+    loading,
   }
 }
 
@@ -62,12 +62,11 @@ export const useGetBlog = (id: string) => {
 
   useEffect(() => {
     try {
-      (async () => {
-        const res = await microcms
-          .get({
-            endpoint: 'blogs',
-            queries: { ids: id }
-          }) as Microcms
+      ;(async () => {
+        const res = (await microcms.get({
+          endpoint: 'blogs',
+          queries: { ids: id },
+        })) as Microcms
 
         setBlog(res.contents[0])
         setLoading(false)
