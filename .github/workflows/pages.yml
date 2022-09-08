@@ -28,30 +28,28 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-
       - name: Build
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: "16"
+          cache: npm
       - run: npm install
       - run: npm run build
         working-directory: application
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
-          path: './application/build'
+          path: "./application/build"
 
       - name: Deploy to GitHub Pages
         id: deployment
