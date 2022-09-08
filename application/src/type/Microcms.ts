@@ -1,5 +1,5 @@
 export type MicrocmsContents = {
-  category: any
+  tag: Array<string>
   content: string
   createdAt: string
   eyecatch: any
