@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { cssMyList } from './my-style'
+import { cssMyList } from '../my-style'
 
 const microcmsTags = ['none', 'HTML', 'CSS', 'JavaScript', 'Node.JS', 'React']
 

@@ -1,5 +1,5 @@
 import { Layout } from 'components/Layout'
-import { List } from 'components/List'
+import { List } from 'components/modules/List'
 import { useGetBlogList } from 'config/microcms'
 import { Link, useLocation } from 'react-router-dom'
 
