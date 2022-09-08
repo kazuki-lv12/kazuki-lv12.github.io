@@ -11,26 +11,34 @@ export const App = (): JSX.Element => {
     return <Layout contents={<div>now loading...</div>} sideber={<List />} />
   }
 
+  if (total !== 0) {
+    return (
+      <Layout
+        contents={
+          <>
+            {blogList.map((blog) => {
+              return (
+                <div key={blog.id}>
+                  <Link to={`/${blog.id}`}>
+                    <h1>{blog.title}</h1>
+                  </Link>
+                </div>
+              )
+            })}
+          </>
+        }
+        sideber={<List />}
+      />
+    )
+  }
+
   return (
     <Layout
       contents={
-        <>
-          {blogList.map((blog) => {
-            return (
-              <div key={blog.id}>
-                <Link to={`/${blog.id}`}>
-                  <h1>{blog.title}</h1>
-                </Link>
-              </div>
-            )
-          })}
-          {total === 0 ? (
-            <div className="text-center">
-              <p>該当するアイテムが見つかりませんでした。</p>
-              <Link to={'/'}>もどる</Link>
-            </div>
-          ) : null}
-        </>
+        <div className="text-center">
+          <p>該当するアイテムが見つかりませんでした。</p>
+          <Link to={'/'}>もどる</Link>
+        </div>
       }
       sideber={<List />}
     />
