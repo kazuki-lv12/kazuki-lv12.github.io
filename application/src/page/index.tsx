@@ -12,6 +12,7 @@ export const App = (): JSX.Element => {
   if (total !== 0) {
     return (
       <div>
+        <h1>トップページ</h1>
         {blogList.map((blog) => {
           return (
             <div key={blog.id}>
