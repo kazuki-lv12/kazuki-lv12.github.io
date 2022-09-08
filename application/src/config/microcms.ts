@@ -4,7 +4,7 @@ import { Microcms, MicrocmsContents } from 'type/Microcms'
 
 export const microcms = createClient({
   serviceDomain: 'kazuki-lv12',
-  apiKey: process.env.REACT_APP_MICROCMS_API_KEY || '',
+  apiKey: "96f4c53896a34c98aebebb039ebd5339dcf8",
 })
 
 /**
