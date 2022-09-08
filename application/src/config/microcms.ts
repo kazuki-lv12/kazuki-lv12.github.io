@@ -19,7 +19,7 @@ export const useGetBlogList = (tag: string | null) => {
 
   useEffect(() => {
     try {
-      ;(async () => {
+      ; (async () => {
         if (tag) {
           const res = (await microcms.get({
             endpoint: 'blogs',
@@ -62,7 +62,7 @@ export const useGetBlog = (id: string) => {
 
   useEffect(() => {
     try {
-      ;(async () => {
+      ; (async () => {
         const res = (await microcms.get({
           endpoint: 'blogs',
           queries: { ids: id },
@@ -78,4 +78,60 @@ export const useGetBlog = (id: string) => {
   }, [id])
 
   return { blog, loading }
+}
+
+type Tag = {
+  [tag: string]: number;
+}
+
+type Tags = Array<Tag>
+
+export const useGetTags = () => {
+  const [tags, setTags] = useState<Tags>([])
+  const [loading, setLoading] = useState<boolean>(true)
+
+  useEffect(() => {
+    try {
+      ; (async () => {
+        const res = (await microcms.get({
+          endpoint: 'blogs',
+          queries: { fields: 'tag', limit: 10000 }
+        })) as Microcms
+
+        // オブジェクトで値をカウントする
+        const count: Tag = {};
+
+        for (var i = 0; i < res.contents.length; i++) {
+          var tag = res.contents[i].tag[0];
+
+          if (Object.keys(count).indexOf(tag) === -1) {
+            count[tag] = 1;
+          } else {
+            count[tag] = count[tag] + 1;
+          }
+        }
+
+        // オブジェクトを配列に変換
+        const tags: Tags = []
+
+        for (const [key, value] of Object.entries(count)) {
+          const tag: Tag = {}
+          tag[key] = value
+
+          tags.push(tag)
+        }
+
+        setTags(tags)
+        setLoading(false)
+      })()
+    } catch {
+      setTags([])
+      setLoading(false)
+    }
+  }, [])
+
+  return {
+    tags,
+    loading
+  }
 }
