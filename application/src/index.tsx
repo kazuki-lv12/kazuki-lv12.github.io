@@ -9,8 +9,8 @@ import { Header } from 'components/Header'
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
-    <Header />
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/*" element={<AppId />} />

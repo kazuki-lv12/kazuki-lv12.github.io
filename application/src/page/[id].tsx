@@ -1,3 +1,4 @@
+import { Layout } from 'components/Layout'
 import { cssMyList } from 'components/my-style'
 import { useGetBlog } from 'config/microcms'
 import { Link, useLocation } from 'react-router-dom'
@@ -16,9 +17,9 @@ export const AppId = (): JSX.Element => {
   const blog = useGetBlog(id)
 
   return (
-    <div className="bg-[#F1F5F9] pt-16 min-h-[100vh]">
-      <div className="flex justify-center">
-        <div className="w-[900px]">
+    <Layout
+      contents={
+        <>
           <p className="ml-4">
             <Link to={'/'}>トップページへ</Link>
           </p>
@@ -30,9 +31,12 @@ export const AppId = (): JSX.Element => {
               }}
             />
           </div>
-        </div>
-        <div>
-          <ul className="max-w-xs flex flex-col">
+        </>
+      }
+      sideber={
+        <>
+          <h3 className="text-center">tag list</h3>
+          <div className="max-w-xs flex flex-col">
             {microcmsTags.map((tag, index) => {
               return (
                 <li key={index} className={`${cssMyList}`}>
@@ -42,9 +46,9 @@ export const AppId = (): JSX.Element => {
                 </li>
               )
             })}
-          </ul>
-        </div>
-      </div>
-    </div>
+          </div>
+        </>
+      }
+    />
   )
 }
