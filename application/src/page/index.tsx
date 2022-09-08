@@ -1,10 +1,15 @@
 import { Layout } from 'components/Layout'
 import { List } from 'components/List'
 import { useGetBlogList } from 'config/microcms'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 export const App = (): JSX.Element => {
-  const blogList = useGetBlogList()
+  const tag = useLocation().search.slice(5, 100) || null
+  const { blogList, total, loading } = useGetBlogList(tag)
+
+  if (loading) {
+    return <Layout contents={<div>now loading...</div>} sideber={<List />} />
+  }
 
   return (
     <Layout
@@ -19,6 +24,12 @@ export const App = (): JSX.Element => {
               </div>
             )
           })}
+          {total === 0 ? (
+            <div className="text-center">
+              <p>該当するアイテムが見つかりませんでした。</p>
+              <Link to={'/'}>もどる</Link>
+            </div>
+          ) : null}
         </>
       }
       sideber={<List />}
