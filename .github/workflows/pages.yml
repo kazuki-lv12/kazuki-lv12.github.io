@@ -15,4 +15,5 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: "16"
-    - run: cd application/ && ls -a
+    - run: cd application/ 
+      run: ls -a
