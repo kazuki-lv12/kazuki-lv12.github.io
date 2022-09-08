@@ -39,13 +39,13 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v2
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Build
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: cd application/
       - run: npm ci
       - run: npm run build
+        working-directory: ./application
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
