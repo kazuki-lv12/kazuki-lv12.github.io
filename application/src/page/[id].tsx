@@ -1,16 +1,7 @@
 import { Layout } from 'components/Layout'
-import { cssMyList } from 'components/my-style'
+import { List } from 'components/List'
 import { useGetBlog } from 'config/microcms'
 import { Link, useLocation } from 'react-router-dom'
-
-export const microcmsTags = [
-  'none',
-  'HTML',
-  'CSS',
-  'JavaScript',
-  'Node.JS',
-  'React',
-]
 
 export const AppId = (): JSX.Element => {
   const id = useLocation().pathname.replace('/', '')
@@ -33,22 +24,7 @@ export const AppId = (): JSX.Element => {
           </div>
         </>
       }
-      sideber={
-        <>
-          <h3 className="text-center">tag list</h3>
-          <div className="max-w-xs flex flex-col">
-            {microcmsTags.map((tag, index) => {
-              return (
-                <li key={index} className={`${cssMyList}`}>
-                  <Link to={`/?tag=${tag}`} className="no-underline">
-                    {tag}
-                  </Link>
-                </li>
-              )
-            })}
-          </div>
-        </>
-      }
+      sideber={<List />}
     />
   )
 }
