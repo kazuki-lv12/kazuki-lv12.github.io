@@ -9,7 +9,7 @@ export const Header = (): JSX.Element => {
           kazuki lv12
         </Link>
       </h1>
-      <a href="https://github.com/kazuki-lv12">
+      <a href="https://github.com/kazuki-lv12" className="flex">
         <img src={githubIcon} alt="github icon" />
       </a>
     </header>
