@@ -80,13 +80,13 @@ export const useGetBlog = (id: string | null | undefined) => {
   return { blog, loading }
 }
 
-type Tag = {
-  [tag: string]: number;
-}
-
-type Tags = Array<Tag>
-
+/**
+ * タグリストをまとめて何個あるのかを返す関数
+ */
 export const useGetTags = () => {
+  type Tag = { [tag: string]: number; }
+  type Tags = Array<Tag>
+
   const [tags, setTags] = useState<Tags>([])
   const [loading, setLoading] = useState<boolean>(true)
 
@@ -102,12 +102,14 @@ export const useGetTags = () => {
         const count: Tag = {};
 
         for (var i = 0; i < res.contents.length; i++) {
-          var tag = res.contents[i].tag[0];
+          for (var j = 0; j < res.contents[i].tag.length; j++) {
+            var tag = res.contents[i].tag[j];
 
-          if (Object.keys(count).indexOf(tag) === -1) {
-            count[tag] = 1;
-          } else {
-            count[tag] = count[tag] + 1;
+            if (Object.keys(count).indexOf(tag) === -1) {
+              count[tag] = 1;
+            } else {
+              count[tag] = count[tag] + 1;
+            }
           }
         }
 
