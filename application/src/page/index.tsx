@@ -20,12 +20,19 @@ export const App = (): JSX.Element => {
               key={blog.id}
               className={`flex items-center rounded overflow-hidden shadow-lg p-4`}
             >
-              <Link to={`/${blog.id}`} className="no-underline w-full text-black">
+              <Link
+                to={`/${blog.id}`}
+                className="no-underline w-full text-black"
+              >
                 <h1>{blog.title}</h1>
                 <p>{blog.digest.slice(0, 100)}</p>
                 <div className="flex">
-                  {blog.tag.map((tag) => {
-                    return <p className="ml-2 text-blue-800"># {tag}</p>
+                  {blog.tag.map((tag, index) => {
+                    return (
+                      <p key={index} className="ml-2 text-blue-800">
+                        # {tag}
+                      </p>
+                    )
                   })}
                   <p className="ml-auto">{date}</p>
                 </div>
