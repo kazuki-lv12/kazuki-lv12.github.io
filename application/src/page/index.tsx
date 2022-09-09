@@ -18,7 +18,7 @@ export const App = (): JSX.Element => {
           return (
             <div
               key={blog.id}
-              className={`flex items-center rounded overflow-hidden shadow-lg p-4`}
+              className="flex items-center rounded overflow-hidden shadow-lg py-2 px-4 bg-white mb-4"
             >
               <Link
                 to={`/${blog.id}`}
