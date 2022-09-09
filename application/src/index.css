@@ -5,8 +5,10 @@ body {
   margin: 0;
 }
 
-img {
-  width: 100%;
+@media (max-width: 1024px) {
+  img {
+    width: 100%;
+  }
 }
 
 /* header */
