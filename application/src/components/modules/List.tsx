@@ -1,6 +1,6 @@
 import { useGetTags } from 'config/microcms'
 import { Link } from 'react-router-dom'
-import { cssMyList } from '../my-style'
+import { cssMyList } from 'components/styles/list'
 
 export const List = () => {
   const { tags } = useGetTags()
