@@ -5,6 +5,10 @@ body {
   margin: 0;
 }
 
+img {
+  width: 100%;
+}
+
 /* header */
 .c-boder {
   border-bottom: 1px solid #e4edf4;

@@ -11,10 +11,7 @@ export const AppId = (): JSX.Element => {
   if (blog) {
     return (
       <div>
-        <p className="ml-4">
-          <Link to={'/'}>トップページへ</Link>
-        </p>
-        <div className="bg-white p-4 rounded-xl mb-24">
+        <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
           <h1 className="text-center mb-8">{blog?.title}</h1>
           <div
             dangerouslySetInnerHTML={{
