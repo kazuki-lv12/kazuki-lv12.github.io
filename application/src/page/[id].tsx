@@ -5,7 +5,7 @@ export const AppId = (): JSX.Element => {
   const { blog, loading } = useGetBlog(useParams()['*'])
 
   if (loading) {
-    return <div>now loading...</div>
+    return <div className="text-center">now loading...</div>
   }
 
   if (blog) {
@@ -26,7 +26,7 @@ export const AppId = (): JSX.Element => {
   return (
     <div className="text-center">
       <p>該当するアイテムが見つかりませんでした。</p>
-      <Link to={'/'}>もどる</Link>
+      <Link to={'/'} className="no-underline text-blue-800">もどる</Link>
     </div>
   )
 }

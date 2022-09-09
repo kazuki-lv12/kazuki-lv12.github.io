@@ -1,12 +1,13 @@
 import { useGetBlogList } from 'config/microcms'
 import { Link, useLocation } from 'react-router-dom'
+import queryString from 'query-string';
 
 export const App = (): JSX.Element => {
-  const tag = useLocation().search.slice(5, 100) || null
-  const { blogList, total, loading } = useGetBlogList(tag)
+  const query = queryString.parse(useLocation().search);
+  const { blogList, total, loading } = useGetBlogList(query["tag"] as string)
 
   if (loading) {
-    return <div>now loading...</div>
+    return <div className="text-center">now loading...</div>
   }
 
   if (total !== 0) {
@@ -47,7 +48,7 @@ export const App = (): JSX.Element => {
   return (
     <div className="text-center">
       <p>該当するアイテムが見つかりませんでした。</p>
-      <Link to={'/'}>もどる</Link>
+      <Link to={'/'} className="no-underline text-blue-800">もどる</Link>
     </div>
   )
 }

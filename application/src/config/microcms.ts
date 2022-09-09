@@ -12,7 +12,7 @@ export const microcms = createClient({
  * - すべての blog を返します
  * - tag を指定することで該当する blog を返します
  */
-export const useGetBlogList = (tag: string | null) => {
+export const useGetBlogList = (tag: string | null | undefined) => {
   const [total, setTotal] = useState<number>(0)
   const [blogList, setBlogList] = useState<Array<MicrocmsContents>>([])
   const [loading, setLoading] = useState<boolean>(true)
@@ -20,7 +20,7 @@ export const useGetBlogList = (tag: string | null) => {
   useEffect(() => {
     try {
       ; (async () => {
-        if (tag) {
+        if (tag && typeof tag === "string") {
           const res = (await microcms.get({
             endpoint: 'blogs',
             queries: { filters: `tag[contains]${tag}` },
