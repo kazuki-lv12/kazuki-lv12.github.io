@@ -1,13 +1,13 @@
 export type MicrocmsContents = {
   tag: Array<string>
   content: string
-  createdAt: string
-  eyecatch: any
+  digest: string
+  title: string
   id: string
+  createdAt: string
+  updatedAt: string
   publishedAt: string
   revisedAt: string
-  title: string
-  updatedAt: string
 }
 
 export type Microcms = {

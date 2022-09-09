@@ -5,7 +5,27 @@ body {
   margin: 0;
 }
 
+img {
+  width: 100%;
+}
+
 /* header */
 .c-boder {
   border-bottom: 1px solid #e4edf4;
+}
+
+.c-boder-t {
+  border-top: 1px solid #e4edf4;
+}
+
+@media (max-width: 762px) {
+  h1 {
+    margin: 8px 0;
+  }
+  h2 {
+    margin: 4px 0;
+  }
+  p {
+    margin: 4px 0;
+  }
 }
