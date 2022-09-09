@@ -12,10 +12,12 @@ export const AppId = (): JSX.Element => {
     return (
       <div>
         <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
-          <h1 className="text-center mb-8">{blog?.title}</h1>
+          <h1 className="text-center">{blog.title}</h1>
+          <p className="text-end">投稿日 {blog.createdAt.slice(0, 10)}</p>
+          <p className='text-end'>最終更新日 {blog.updatedAt.slice(0, 10)}</p>
           <div
             dangerouslySetInnerHTML={{
-              __html: `${blog?.content}`,
+              __html: `${blog.content}`,
             }}
           />
         </div>
