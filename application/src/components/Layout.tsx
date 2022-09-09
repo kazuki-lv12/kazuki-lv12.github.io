@@ -7,10 +7,10 @@ type Props = {
 
 export const Layout = ({ contents }: Props) => {
   return (
-    <div className="bg-[#F1F5F9] pt-16 min-h-[100vh]">
-      <div className="flex justify-center">
-        <div className="w-[900px]">{contents}</div>
-        <div className="ml-8">
+    <div className="bg-[#F1F5F9] pt-4 min-h-[100vh]">
+      <div className="flex justify-center p-8 flex-col md:flex-row">
+        <div className="w-max-[900px] mb-6 md:mb-0">{contents}</div>
+        <div className="md:ml-4">
           <List />
         </div>
       </div>
