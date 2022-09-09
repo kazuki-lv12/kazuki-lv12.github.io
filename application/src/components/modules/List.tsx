@@ -7,16 +7,15 @@ export const List = () => {
 
   return (
     <>
-      <h3 className="text-center">tag list</h3>
-      <div className="max-w-xs flex flex-col">
+      <div className="flex flex-col rounded overflow-hidden shadow-lg">
         {tags.map((tag, index) => {
           return (
             <li key={index} className={`${cssMyList}`}>
               <Link
                 to={`/?tag=${Object.keys(tag)}`}
-                className="flex no-underline"
+                className="flex no-underline text-blue-800"
               >
-                <p className="m-0 w-20">{Object.keys(tag)}</p>
+                <p className="m-0 w-20"># {Object.keys(tag)}</p>
                 <div>{Object.values(tag)}</div>
               </Link>
             </li>
