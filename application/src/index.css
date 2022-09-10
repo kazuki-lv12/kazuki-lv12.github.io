@@ -5,6 +5,14 @@ body {
   margin: 0;
 }
 
+pre {
+  padding: 4px;
+  border-radius: 0.25rem;
+  background: #22272E;
+  color: white;
+  overflow-x: scroll;
+}
+
 @media (max-width: 1024px) {
   img {
     width: 100%;
