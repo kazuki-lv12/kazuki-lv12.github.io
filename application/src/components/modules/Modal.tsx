@@ -25,7 +25,7 @@ export const Modal: Function = ({ open, handler }: Props) => {
             'Content-Type': 'application/vnd.github+json',
             Authorization:
               // eslint-disable-next-line no-useless-concat
-              'Bearer' + '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',
+              'Bearer' + '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',
           },
           body: JSON.stringify({
             title: `title:${title}, email:${email}`,
