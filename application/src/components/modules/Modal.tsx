@@ -23,7 +23,9 @@ export const Modal: Function = ({ open, handler }: Props) => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/vnd.github+json',
-            Authorization: `Bearer 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`,
+            Authorization:
+              // eslint-disable-next-line no-useless-concat
+              'Bearer' + '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',
           },
           body: JSON.stringify({
             title: `title:${title}, email:${email}`,
