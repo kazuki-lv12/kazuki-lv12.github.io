@@ -23,7 +23,7 @@ export const Modal: Function = ({ open, handler }: Props) => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/vnd.github+json',
-            Authorization: `Bearer ${process.env.REACT_APP_GITHUB_ISSUE_KEY}`,
+            Authorization: `Bearer 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`,
           },
           body: JSON.stringify({
             title: `title:${title}, email:${email}`,
