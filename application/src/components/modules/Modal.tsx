@@ -1,3 +1,4 @@
+import { Octokit } from 'octokit'
 import { useState } from 'react'
 
 type Props = {
@@ -17,22 +18,16 @@ export const Modal: Function = ({ open, handler }: Props) => {
     }
 
     try {
-      const res = await fetch(
-        'https://api.github.com/repos/kazuki-lv12/kazuki-lv12.github.io/issues',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/vnd.github+json',
-            Authorization:
-              // eslint-disable-next-line no-useless-concat
-              'Bearer' + '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',
-          },
-          body: JSON.stringify({
-            title: `title:${title}, email:${email}`,
-            body: message,
-          }),
-        }
-      )
+      const octokit = new Octokit({
+        auth: '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',
+      })
+
+      const res = await octokit.request('POST /repos/{owner}/{repo}/issues', {
+        owner: 'kazuki-lv12',
+        repo: 'kazuki-lv12.github.io',
+        title: `title:${title}, email:${email}`,
+        body: message,
+      })
 
       if (res.status !== 201) {
         throw Error('error')
