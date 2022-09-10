@@ -17,7 +17,7 @@ export const Layout = ({ contents }: Props) => {
         </div>
       </div>
       <div className="absolute w-full bottom-0 text-center text-[10px] c-boder-t">
-        <p className='m-0'>(c) 2200~2500 大したこと書いてねぇぇ</p>
+        <p className="m-0">(c) 2200~2500 大したこと書いてねぇぇ</p>
       </div>
     </div>
   )
