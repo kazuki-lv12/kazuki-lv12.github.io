@@ -19,7 +19,7 @@ export const Modal: Function = ({ open, handler }: Props) => {
 
     try {
       const octokit = new Octokit({
-        auth: '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',
+        auth: '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',
       })
 
       const res = await octokit.request('POST /repos/{owner}/{repo}/issues', {
