@@ -14,7 +14,7 @@ export const AppId = (): JSX.Element => {
         <div className="bg-white p-4 rounded overflow-hidden shadow-lg">
           <h1 className="text-center">{blog.title}</h1>
           <p className="text-end">投稿日 {blog.createdAt.slice(0, 10)}</p>
-          <p className='text-end'>最終更新日 {blog.updatedAt.slice(0, 10)}</p>
+          <p className="text-end">最終更新日 {blog.updatedAt.slice(0, 10)}</p>
           <div
             dangerouslySetInnerHTML={{
               __html: `${blog.content}`,
@@ -28,7 +28,9 @@ export const AppId = (): JSX.Element => {
   return (
     <div className="text-center">
       <p>該当するアイテムが見つかりませんでした。</p>
-      <Link to={'/'} className="no-underline text-blue-800">もどる</Link>
+      <Link to={'/'} className="no-underline text-blue-800">
+        もどる
+      </Link>
     </div>
   )
 }

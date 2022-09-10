@@ -4,7 +4,7 @@ import { Microcms, MicrocmsContents } from 'type/Microcms'
 
 export const microcms = createClient({
   serviceDomain: 'kazuki-lv12',
-  apiKey: "96f4c53896a34c98aebebb039ebd5339dcf8",
+  apiKey: '96f4c53896a34c98aebebb039ebd5339dcf8',
 })
 
 /**
@@ -19,8 +19,8 @@ export const useGetBlogList = (tag: string | null | undefined) => {
 
   useEffect(() => {
     try {
-      ; (async () => {
-        if (tag && typeof tag === "string") {
+      ;(async () => {
+        if (tag && typeof tag === 'string') {
           const res = (await microcms.get({
             endpoint: 'blogs',
             queries: { filters: `tag[contains]${tag}` },
@@ -62,7 +62,7 @@ export const useGetBlog = (id: string | null | undefined) => {
 
   useEffect(() => {
     try {
-      ; (async () => {
+      ;(async () => {
         const res = (await microcms.get({
           endpoint: 'blogs',
           queries: { ids: `${id}` },
@@ -84,7 +84,7 @@ export const useGetBlog = (id: string | null | undefined) => {
  * タグリストをまとめて何個あるのかを返す関数
  */
 export const useGetTags = () => {
-  type Tag = { [tag: string]: number; }
+  type Tag = { [tag: string]: number }
   type Tags = Array<Tag>
 
   const [tags, setTags] = useState<Tags>([])
@@ -92,23 +92,23 @@ export const useGetTags = () => {
 
   useEffect(() => {
     try {
-      ; (async () => {
+      ;(async () => {
         const res = (await microcms.get({
           endpoint: 'blogs',
-          queries: { fields: 'tag', limit: 10000 }
+          queries: { fields: 'tag', limit: 10000 },
         })) as Microcms
 
         // オブジェクトで値をカウントする
-        const count: Tag = {};
+        const count: Tag = {}
 
         for (var i = 0; i < res.contents.length; i++) {
           for (var j = 0; j < res.contents[i].tag.length; j++) {
-            var tag = res.contents[i].tag[j];
+            var tag = res.contents[i].tag[j]
 
             if (Object.keys(count).indexOf(tag) === -1) {
-              count[tag] = 1;
+              count[tag] = 1
             } else {
-              count[tag] = count[tag] + 1;
+              count[tag] = count[tag] + 1
             }
           }
         }
@@ -134,6 +134,6 @@ export const useGetTags = () => {
 
   return {
     tags,
-    loading
+    loading,
   }
 }
