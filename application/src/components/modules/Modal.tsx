@@ -53,7 +53,7 @@ export const Modal: Function = ({ open, handler }: Props) => {
         />
         <div className="absolute inset-0">
           <div className="p-4 rounded-lg bg-white z-10 modal min-w-[280px] w-[35vw]">
-            <h1 className="text-center">Contact Form</h1>
+            <h1 className="text-center m-0 md:mb-4">Contact Form</h1>
             <label htmlFor="email" className="label">
               Email
             </label>
@@ -62,7 +62,7 @@ export const Modal: Function = ({ open, handler }: Props) => {
               type="email"
               name="email"
               placeholder="name@company.com"
-              className="py-2 mb-4 input"
+              className="py-2 input"
               value={email}
               onChange={(e) => setEmail(e.currentTarget.value)}
             />
@@ -72,7 +72,7 @@ export const Modal: Function = ({ open, handler }: Props) => {
             <input
               id="title"
               placeholder="Title"
-              className="py-2 mb-4 input"
+              className="py-2 input"
               value={title}
               onChange={(e) => setTitle(e.currentTarget.value)}
             />
@@ -81,13 +81,13 @@ export const Modal: Function = ({ open, handler }: Props) => {
             </label>
             <textarea
               id="message"
-              rows={6}
-              className="py-2 mb-4 input"
+              rows={2}
+              className="py-2 input"
               placeholder="Your message..."
               value={message}
               onChange={(e) => setMessage(e.currentTarget.value)}
             ></textarea>
-            <div className="text-center">
+            <div className="text-center my-2">
               <button
                 onClick={onSubmit}
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
@@ -95,10 +95,10 @@ export const Modal: Function = ({ open, handler }: Props) => {
                 SEND
               </button>
             </div>
-            <p>
+            <p className="m-0">
               ※ Github の issue に投稿されるため個人情報は書かないでください。
             </p>
-            <p>
+            <p className="m-0">
               Issue URL {` `}
               <a
                 href="https://github.com/kazuki-lv12/kazuki-lv12.github.io/issues"
@@ -108,7 +108,7 @@ export const Modal: Function = ({ open, handler }: Props) => {
                 https://github.com/kazuki-lv12/kazuki-lv12.github.io/issues
               </a>
             </p>
-            <p>※ Email も公開されます。</p>
+            <p className="m-0">※ Email も公開されます。</p>
           </div>
         </div>
       </>
